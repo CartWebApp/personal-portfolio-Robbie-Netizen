@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Kristi&family=Petit+Formal+Script&family=Rochester&display=swap');
+
+:root {
+    --primary-accent: #9FC9F5;
+    --primary-dark: #0F0E0E;
+    --primary-background: #F1F7ED;
+    --secondary-background: #245639;
+    --header-font: 'Petit Formal Script', cursive;
+    --para-font: 'Rochester', cursive;
+    --link-font: 'Kristi', cursive;
+}
+
+body {
+    margin: 0;
+}
+
+h3 {
+    font-family: var(--header-font);
+    color: var(--primary-dark);
+}
+
+p {
+    font-family: var(--para-font);
+}
+
+
+/* Navigation */
+nav {
+    background-color: var(--secondary-background);
+    display: flex;
+    width: calc(100% - 192px);
+    height: 10%;
+    padding: 25px 96px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: var(--primaryBackground, #F1F7ED);
+    font-family: Kristi;
+    font-size: 40px;
+    margin: 10px 20px;
+    text-decoration: none;
+}
+
+nav section {
+    width: 100px;
+    height: 100px;
+}
+
+nav section img {
+    width: 100px;
+    height: 100px;
+}
+
+
+/* Carouseling Images*/
+#carousel {
+    height: 90vh;
+}
+
+ul {
+    margin: 0;
+}
+
+
+/* Project Cards */
+#project-cards {
+    display: grid;
+    grid-template-rows: calc(100% / 3);
+    grid-template-columns: 50% 50%;
+    grid-template-areas: "eecu eecu"
+                         "todo loopless"
+                         "animal blackhole";
+}
+
+#card- {
+    grid-area: ;
+}
