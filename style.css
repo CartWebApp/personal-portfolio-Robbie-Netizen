@@ -6,21 +6,57 @@
     --primary-background: #F1F7ED;
     --secondary-background: #245639;
     --header-font: 'Petit Formal Script', cursive;
-    --para-font: 'Rochester', cursive;
+    --paragraph-font: 'Rochester', cursive;
     --link-font: 'Kristi', cursive;
 }
 
 body {
     margin: 0;
+    background: var(--primary-background);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: var(--header-font);
+    color: var(--primary-dark);
+}
+
+h2 {
+    font-size: 40px;
+    font-family: var(--header-font);
+    color: var(--primary-dark);
 }
 
 h3 {
+    font-size: 24px;
     font-family: var(--header-font);
     color: var(--primary-dark);
 }
 
 p {
-    font-family: var(--para-font);
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 155px;
+    align-self: stretch;
+    text-overflow: ellipsis;
+    font-size: 24px;
+    font-family: var(--paragraph-font);
+    color: var(--primary-dark);
+}
+
+li {
+    font-size: 24px;
+    font-family: var(--paragraph-font);
+    color: var(--primary-dark);
 }
 
 
@@ -66,14 +102,138 @@ ul {
 
 /* Project Cards */
 #project-cards {
-    display: grid;
-    grid-template-rows: calc(100% / 3);
-    grid-template-columns: 50% 50%;
+    display: inline-grid;
+    height: fit-content;
+    margin: 5% 10%;
+    row-gap: 50px;
+    column-gap: 150px;
+    grid-template-rows: fit-content(100%) fit-content(100%) minmax(0, 1fr);
+    grid-template-columns: repeat(2, fit-content(100%));
     grid-template-areas: "eecu eecu"
-                         "todo loopless"
-                         "animal blackhole";
+        "todo loopless"
+        "animal blackhole";
 }
 
-#card- {
-    grid-area: ;
+#card-eecu {
+    grid-area: eecu;
+}
+
+#card-to-do {
+    grid-area: todo;
+}
+
+#card-loopless {
+    grid-area: loopless;
+}
+
+#card-animal {
+    grid-area: animal;
+}
+
+#card-black-hole {
+    grid-area: blackhole;
+}
+
+.project-card {
+    display: flex;
+    height: 500px;
+    min-width: 35%;
+    max-width: 100%;
+    padding: 25px 50px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: center;
+    border-radius: 20px;
+    border: 2px solid var(--primaryAccent, #9FC9F5);
+    background: url(./images/bg-design.png) 0px 0px/200px 200px repeat;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.project-description {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: start;
+    justify-self: start;
+}
+
+.project-description * {
+    margin: 0;
+}
+
+
+/* Project Template Page */
+.project-template {
+    display: flex;
+    width: 75%;
+    padding: 2% 5%;
+    height: fit-content;
+    margin-top: 100px;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    border-radius: 20px;
+    border: 2px solid var(--primary-accent);
+    background: url(/images/bg-design.png) 0% 0% / 200px 200px repeat;
+}
+
+.project-template-content {
+    display: grid;
+    justify-content: center;
+    width: 90%;
+    height: fit-content;
+    row-gap: 50px;
+    column-gap: 50px;
+    flex-shrink: 0;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "word1 image1"
+        "image2 word2"
+        "word3 image3"
+        "image4 word4";
+}
+
+#word1 {
+    grid-area: word1;
+}
+
+#word2 {
+    grid-area: word2;
+}
+
+#word3 {
+    grid-area: word3;
+}
+
+#word4 {
+    grid-area: word4;
+}
+
+#image1 {
+    grid-area: image1;
+}
+
+#image2 {
+    grid-area: image2;
+}
+
+#image3 {
+    grid-area: image3;
+}
+
+#image4 {
+    grid-area: image4;
+}
+
+.project-template-content article {
+    width: fill;
+    height: fill;
+}
+
+.project-template-content article img {
+    object-fit: fill;
 }
