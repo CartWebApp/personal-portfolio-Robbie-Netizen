@@ -62,9 +62,12 @@ li {
 
 /* Navigation */
 nav {
+    position: sticky;
+    top: 0;
     background-color: var(--secondary-background);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
     display: flex;
-    width: calc(100% - 192px);
+    width: calc(100% - padding);
     height: 10%;
     padding: 25px 96px;
     justify-content: space-between;
@@ -181,7 +184,7 @@ ul {
     background: url(/images/bg-design.png) 0% 0% / 200px 200px repeat;
 }
 
-.project-template-content {
+[class^="project-template-content"] {
     display: grid;
     justify-content: center;
     width: 90%;
@@ -189,12 +192,23 @@ ul {
     row-gap: 50px;
     column-gap: 50px;
     flex-shrink: 0;
-    grid-template-rows: repeat(4, 1fr);
+}
+
+.project-template-content-code {
+    grid-template-rows: repeat(4, auto);
     grid-template-columns: repeat(2, 1fr);
     grid-template-areas: "word1 image1"
         "image2 word2"
         "word3 image3"
         "image4 word4";
+}
+
+.project-template-content-essay {
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "word1 image1"
+        "image2 word2"
+        "word3 image3";
 }
 
 #word1 {
@@ -215,25 +229,59 @@ ul {
 
 #image1 {
     grid-area: image1;
+    background: url(./images/fall.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #image2 {
     grid-area: image2;
+    background: url(./images/snow.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #image3 {
     grid-area: image3;
+    background: url(./images/strange.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #image4 {
     grid-area: image4;
+    background: url(./images/mountain.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.project-template-content article {
-    width: fill;
-    height: fill;
+.project-template-info {
+    width: 100%;
 }
 
-.project-template-content article img {
-    object-fit: fill;
+.project-template-description-containter {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: start;
+    justify-self: start;
+}
+
+.project-template-description-containter * {
+    margin: 0;
+}
+
+.project-template-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+}
+
+.project-template-header a {
+    font-family: var(--link-font);
+    font-size: 40px;
+    color: var(--primary-dark);
 }
