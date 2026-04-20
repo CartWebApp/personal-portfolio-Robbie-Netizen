@@ -140,7 +140,7 @@ ul {
 
 .project-card {
     display: flex;
-    height: 500px;
+    height: auto;
     min-width: 35%;
     max-width: 100%;
     padding: 25px 50px;
@@ -152,6 +152,14 @@ ul {
     border: 2px solid var(--primaryAccent, #9FC9F5);
     background: url(./images/bg-design.png) 0px 0px/200px 200px repeat;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    & img {
+        height: 400px;
+        width: auto;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        border-radius: 20px;
+        border: 2px solid var(--primaryAccent, #9FC9F5);
+    }
 }
 
 .project-description {
@@ -289,16 +297,11 @@ ul {
 
 
 /* Dialog Cards (Project Card Pop-Ups) */
-body:has(dialog[open]) {
+body:has(section.shown) {
     overflow: hidden;
 }
 
-dialog[open] {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
+.shown {
     display: flex;
     width: 85%;
     height: 90vh;
@@ -311,10 +314,28 @@ dialog[open] {
     align-items: center;
     border-radius: 20px;
     border: 2px solid var(--primary-accent);
-    background: url(/images/bg-design.png) 200px 200px repeat;
+    background: url(/images/bg-design.png) 0% 0% / 200px 200px repeat;
     box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.50);
 }
 
-dialog::backdrop {
-    color: black;
+.hidden {
+    display: none;
 }
+
+.large-card-holder {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    background-color: #00000020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inactive {
+    display: none;
+}
+
