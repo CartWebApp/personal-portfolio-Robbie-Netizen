@@ -144,6 +144,7 @@ ul {
     min-width: 35%;
     max-width: 100%;
     padding: 25px 50px;
+    gap: 25px;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -153,9 +154,14 @@ ul {
     background: url(./images/bg-design.png) 0px 0px/200px 200px repeat;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 
+    & h2 {
+        margin: 0;
+    }
+
     & img {
-        height: 400px;
+        height: auto;
         width: auto;
+        max-width: 100%;
         box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
         border-radius: 20px;
         border: 2px solid var(--primaryAccent, #9FC9F5);
