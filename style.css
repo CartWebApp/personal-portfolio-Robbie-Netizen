@@ -304,7 +304,7 @@ ul {
 
 /* Dialog Cards (Project Card Pop-Ups) */
 body:has(section.shown) {
-    overflow: hidden;
+    overflow-y: ;
 }
 
 .shown {
@@ -344,4 +344,3 @@ body:has(section.shown) {
 .inactive {
     display: none;
 }
-

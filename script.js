@@ -7,20 +7,33 @@ const looplessCardExpanded = document.getElementById('expanded-card-loopless')
 const animalCard = document.getElementById('card-animal');
 const animalCardExpanded = document.getElementById('expanded-card-animal')
 const blackHoldCard = document.getElementById('card-black-hole');
-const blackHoleCardExpanded = document.getElementById('expanded-card-black-hole')
+const expandedCardView = document.getElementById('large-card-holder')
 
-function expandCards() {
-    let expandedCardName = "eecuCard" + "Expanded";
-    console.log(expandedCardName)
-    expandedCardName.classList.toggle("hidden");
-    expandedCardName.classList.toggle("shown");
+
+eecuCard.addEventListener('click', (eecu) => {
+    expandCard("eecu");
+});
+
+eecuCardExpanded.addEventListener('click', (eecu) => {
+    expandCard("eecu");
+});
+
+function expandCard(project) {
+    let expandedCard = document.getElementById('expanded-card-' + project);
+    console.log(expandedCard);
+    expandedCard.classList.toggle('hidden');
+    expandedCard.classList.toggle('shown');
+    expandedCardView.classList.remove('inactive');
+    console.log(expandedCard.classList);
+    console.log(expandedCardView.classList);
 }
 
-expandCards()
-
-
-
-
-
-
-
+function minimizeCard(project) {
+    let expandedCard = document.getElementById('expanded-card-' + project);
+    console.log(expandedCard);
+    expandedCard.classList.toggle('hidden');
+    expandedCard.classList.toggle('shown');
+    expandedCardView.classList.remove('inactive');
+    console.log(expandedCard.classList);
+    console.log(expandedCardView.classList);
+}
