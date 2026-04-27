@@ -1,3 +1,4 @@
+// Elements
 const eecuCard = document.getElementById('card-eecu');
 const eecuCardExpanded = document.getElementById('expanded-card-eecu');
 
@@ -15,7 +16,7 @@ const blackHoldCardExpanded = document.getElementById('expanded-card-black-hole'
 
 const expandedCardView = document.getElementById('large-card-holder');
 
-
+// Pop-Up EventListeners
 eecuCard.addEventListener('click', () => {
     expandCard("eecu");
 }, true);
@@ -64,9 +65,7 @@ blackHoldCardExpanded.addEventListener('click', () => {
     minimizeCard("black-hole");
 }, true);
 
-
-
-
+// Pop-Up Functions
 function expandCard(project) {
     let expandedCard = document.getElementById('expanded-card-' + project);
     console.log(expandedCard);
