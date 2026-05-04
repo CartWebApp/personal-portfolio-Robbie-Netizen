@@ -4,7 +4,7 @@
     --primary-accent: #9FC9F5;
     --primary-dark: #0F0E0E;
     --primary-background: #F1F7ED;
-    --secondary-background: #245639;
+    --secondary-background: 36, 86, 57;
     --header-font: 'Petit Formal Script', cursive;
     --paragraph-font: 'Rochester', cursive;
     --link-font: 'Kristi', cursive;
@@ -66,45 +66,12 @@ li {
 nav {
     position: sticky;
     top: 0;
-    background-color: var(--secondary-background);
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: rgba(var(--secondary-background), .5);
     padding: 25px 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* nav::after {
-    display: inline-block;
-    position: relative;
-    top: 50px;
-    content: "";
-    height: 100px;
-    width: 100px;
-    background-image: url(./images/logo.svg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    border-color: #245639;
-    border-width: 10px;
-} */
-
-nav a {
-    color: var(--primaryBackground, #F1F7ED);
-    font-family: Kristi;
-    font-size: 40px;
-    margin: 10px 20px;
-    text-decoration: none;
-}
-
-nav section {
-    width: 100px;
-    height: 100px;
-}
-
-nav section img {
-    width: 100px;
-    height: 100px;
+    width: 100%;
 }
 
 
@@ -119,11 +86,33 @@ ul {
 
 /* Navigation */
 
+.rounded-edge {
+    height: 100px;
+    aspect-ratio: 3/2;
+    /* update the 85% to control the curvature
+       you can also update the 50% to control the position
+    */
+    clip-path: ellipse(85% 100% at 50% 0);
+    background: rgba(var(--secondary-background), .75);
+}
+
 .logo {
+    width: 100px;
+    height: 100px;
     background-image: url(./images/logo.svg);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    border-radius: 100px;
+    outline: 10px solid rgb(var(--secondary-background));
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+
+    & a {
+        display: block;
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 /* Project Cards */
@@ -184,10 +173,7 @@ ul {
         height: auto;
         width: auto;
         max-width: 100%;
-        max-height: 70vh;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        border-radius: 20px;
-        border: 2px solid var(--primaryAccent, #9FC9F5);
+        max-height: 50vh;
     }
 }
 
@@ -214,6 +200,7 @@ ul {
     padding: 2% 5%;
     height: fit-content;
     margin-top: 100px;
+    margin-bottom: 50px;
     flex-direction: column;
     align-items: center;
     gap: 40px;
@@ -225,12 +212,23 @@ ul {
 [class^="project-template-content"] {
     display: grid;
     justify-content: center;
+    justify-items: center;
+    align-items: center;
     width: 90%;
     height: fit-content;
     row-gap: 50px;
     column-gap: 50px;
     flex-shrink: 0;
 }
+
+.project-images {
+    width: 100%;
+    height: fit-content;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    border: 2px solid var(--primaryAccent, #9FC9F5);
+}
+
 
 .project-template-content-code {
     grid-template-rows: repeat(4, auto);
@@ -263,34 +261,6 @@ ul {
 
 #word4 {
     grid-area: word4;
-}
-
-#image1 {
-    grid-area: image1;
-    background: url(./images/fall.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#image2 {
-    grid-area: image2;
-    background: url(./images/snow.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#image3 {
-    grid-area: image3;
-    background: url(./images/strange.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-#image4 {
-    grid-area: image4;
-    background: url(./images/mountain.svg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .project-template-info {
@@ -327,7 +297,7 @@ ul {
 
 /* Dialog Cards (Project Card Pop-Ups) */
 body:has(section.shown) {
-    overflow-y: scroll;
+    overflow-y: hidden  ;
 
 }
 
@@ -369,4 +339,33 @@ body:has(section.shown) {
     display: none;
 }
 
+.image-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
 
+.project-hyplink {
+    display: flex;
+    padding: 25px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: var(--primary-dark);
+    font-family: var(--paragraph-font);
+    font-size: 32px;
+    border-radius: 10px;
+    background: url(./images/button-states/inactive.svg) 100% / cover repeat;
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.50);
+}
+
+.project-hyplink:hover {
+    color: var(--primary-background);
+    background: url(./images/button-states/hover.svg) 100% / cover repeat;
+}
+
+.project-hyplink:active {
+    color: var(--primary-background);
+    background: url(./images/button-states/active.svg) 100% / cover repeat;
+}
