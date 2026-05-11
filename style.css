@@ -3,7 +3,7 @@
 :root {
     --primary-accent: #9FC9F5;
     --primary-dark: #0F0E0E;
-    --primary-background: #F1F7ED;
+    --primary-light: #F1F7ED;
     --secondary-background: 36, 86, 57;
     --header-font: 'Petit Formal Script', cursive;
     --paragraph-font: 'Rochester', cursive;
@@ -12,7 +12,7 @@
 
 body {
     margin: 0;
-    background: var(--primary-background);
+    background: var(--primary-light);
     overscroll-behavior: contain;
     scrollbar-gutter: stable both-edges;
 }
@@ -68,6 +68,7 @@ nav {
     top: 0;
     background-color: rgba(var(--secondary-background), .5);
     padding: 25px 0px;
+    margin-bottom: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,13 +87,21 @@ ul {
 
 /* Navigation */
 
-.rounded-edge {
+.rounded-edge-bottom {
     height: 100px;
-    aspect-ratio: 3/2;
     /* update the 85% to control the curvature
        you can also update the 50% to control the position
     */
     clip-path: ellipse(85% 100% at 50% 0);
+    background: rgba(var(--secondary-background), .75);
+}
+
+.rounded-edge-top {
+    height: 300px;
+    /* update the 85% to control the curvature
+       you can also update the 50% to control the position
+    */
+    clip-path: ellipse(85% 100% at 50% 100%);
     background: rgba(var(--secondary-background), .75);
 }
 
@@ -297,7 +306,7 @@ ul {
 
 /* Dialog Cards (Project Card Pop-Ups) */
 body:has(section.shown) {
-    overflow-y: hidden  ;
+    overflow-y: hidden;
 
 }
 
@@ -361,11 +370,73 @@ body:has(section.shown) {
 }
 
 .project-hyplink:hover {
-    color: var(--primary-background);
+    color: var(--primary-light);
     background: url(./images/button-states/hover.svg) 100% / cover repeat;
 }
 
 .project-hyplink:active {
-    color: var(--primary-background);
+    color: var(--primary-light);
     background: url(./images/button-states/active.svg) 100% / cover repeat;
+}
+
+/* Footer */
+footer {
+    z-index: -1;
+    background-color: rgb(var(--secondary-background));
+    overflow-x: hidden;
+    color: var(--primary-light);
+    padding: 2vw;
+    height: 550px;
+    overflow: hidden;
+    align-self: center;
+    & h4 {
+        font-size: 40px;
+        margin: 40px;
+    }
+}
+
+.contact-info {
+    list-style-type: none;
+
+    & li {
+        margin: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        & a{
+            color: var(--primary-light);
+            text-decoration: none;
+            font-size: 30px;
+        } 
+    }
+}
+
+#icon-linkedin::before {
+    display: inline-block;
+    position: relative;
+    content: '';
+    background-image: url(./images/icons/linkedin.png);
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+#icon-github::before {
+    display: inline-block;
+    position: relative;
+    content: '';
+    background-image: url(./images/icons/github.png);
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
+}
+
+#icon-gmail::before {
+    display: inline-block;
+    position: relative;
+    content: '';
+    background-image: url(./images/icons/gmail.png);
+    background-size: 40px;
+    width: 40px;
+    height: 40px;
 }

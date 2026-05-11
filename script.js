@@ -85,4 +85,3 @@ function minimizeCard(project) {
     console.log(expandedCard.classList);
     console.log(expandedCardView.classList);
 }
-
