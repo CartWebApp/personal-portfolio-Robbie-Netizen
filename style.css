@@ -389,25 +389,46 @@ footer {
     height: 550px;
     overflow: hidden;
     align-self: center;
+
     & h4 {
         font-size: 40px;
         margin: 40px;
     }
 }
 
-.contact-info {
-    list-style-type: none;
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'linkedin home'
+                         'github .'
+                         'gmail .';
+    gap: 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+    align-items: center;
 
-    & li {
-        margin: 15px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        & a{
-            color: var(--primary-light);
-            text-decoration: none;
-            font-size: 30px;
-        } 
+    & a {
+        color: var(--primary-light);
+        text-decoration: none;
+        font-size: 30px;
+        width: max-content;
+    }
+
+    & #icon-linkedin {
+        grid-area: linkedin;
+    }
+    
+    & #icon-github {
+        grid-area: github;
+    }
+
+    & #icon-gmail {
+        grid-area: gmail;
+    }
+
+    & #home {
+        grid-area: home;
     }
 }
 
@@ -419,6 +440,7 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
+    top: 7px;
 }
 
 #icon-github::before {
@@ -429,6 +451,7 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
+    top: 7px;
 }
 
 #icon-gmail::before {
@@ -439,4 +462,5 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
+    top: 7px;
 }
