@@ -97,7 +97,7 @@ ul {
 }
 
 .rounded-edge-top {
-    height: 300px;
+    height: 350px;
     /* update the 85% to control the curvature
        you can also update the 50% to control the position
     */
@@ -338,14 +338,15 @@ body:has(section.shown) {
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 1;
 }
 
-#large-card-holder.inactive {
-    display: none;
+.inactive {
+    display: none !important;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .image-button {
@@ -392,20 +393,21 @@ footer {
 
     & h4 {
         font-size: 40px;
-        margin: 40px;
+        margin: 0px;
     }
 }
 
 .footer-content {
+    padding: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-areas: 'linkedin home'
-                         'github .'
-                         'gmail .';
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-areas: 'contact nav'
+                         'linkedin home'
+                         'github eecu'
+                         'gmail blackhole'
+                         'resume .';
     gap: 15px;
-    padding-left: 50px;
-    padding-right: 50px;
     align-items: center;
 
     & a {
@@ -413,6 +415,18 @@ footer {
         text-decoration: none;
         font-size: 30px;
         width: max-content;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px
+    }
+
+    & #contact {
+        grid-area: contact;
+    }
+
+    & #navigation {
+        grid-area: nav; 
     }
 
     & #icon-linkedin {
@@ -427,8 +441,20 @@ footer {
         grid-area: gmail;
     }
 
+    & #resume {
+        grid-area: resume;
+    }
+
     & #home {
         grid-area: home;
+    }
+
+    & #eecu {
+        grid-area: eecu;
+    }
+
+    & #blackhole {
+        grid-area: blackhole;
     }
 }
 
@@ -440,7 +466,6 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
-    top: 7px;
 }
 
 #icon-github::before {
@@ -451,7 +476,6 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
-    top: 7px;
 }
 
 #icon-gmail::before {
@@ -462,5 +486,4 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
-    top: 7px;
 }
