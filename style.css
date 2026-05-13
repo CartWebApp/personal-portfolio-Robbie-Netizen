@@ -88,7 +88,6 @@ ul {
 /* Navigation */
 
 .rounded-edge-bottom {
-    height: 100px;
     /* update the 85% to control the curvature
        you can also update the 50% to control the position
     */
@@ -97,7 +96,6 @@ ul {
 }
 
 .rounded-edge-top {
-    height: 350px;
     /* update the 85% to control the curvature
        you can also update the 50% to control the position
     */
@@ -387,7 +385,6 @@ footer {
     overflow-x: hidden;
     color: var(--primary-light);
     padding: 2vw;
-    height: 550px;
     overflow: hidden;
     align-self: center;
 
@@ -486,4 +483,13 @@ footer {
     background-size: 40px;
     width: 40px;
     height: 40px;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 1000px) {
+    #project-cards {
+        display: flex;
+        flex-direction: column;
+    }
 }
