@@ -492,4 +492,38 @@ footer {
         display: flex;
         flex-direction: column;
     }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+    }
+
+    p {
+        -webkit-line-clamp: 3;
+    }
+
+    .shown {
+        width: 90vw;
+        height: 90vh;
+        padding: 10px;
+    }
+
+    .shown h2 {
+        width: 90%;
+        text-align: center;
+    }
+
+    .shown .image-button img {
+        display: none;
+    }
+
+    .shown .project-description {
+        width: 90vw;
+        align-self: center;
+    }
+
+    [class^='project-template-content'] {
+        display: flex;
+        flex-direction: column;
+    }
 }
